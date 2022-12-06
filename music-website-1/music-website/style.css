@@ -1,0 +1,647 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #131312;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+header .menu-side, .song-side {
+    position: relative;
+    width: 25%;
+    height: 90%;
+    background-color: #111727;
+    box-shadow: 5px 0px 2px #090f1f;
+    color: white;
+}
+
+header .song-side {
+    width: 75%;
+    background: #0b1320;
+}
+
+header .master-play {
+    width: 100%;
+    height: 10%;
+    background: #111727;
+    box-shadow: 0px 3px 8px #090f1f;
+}
+
+header .menu-side h1 {
+    font-size: 20px;
+    margin: 15px 0px 0px 20px;
+    font-weight: 500;
+}
+
+header .menu-side .playlist {
+    margin: 40px 0px 0px 20px;
+}
+
+header .menu-side .playlist h4 a {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    color: #4c5262;
+    transition: .3s linear;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+header .menu-side .playlist h4 a:hover {
+    color: white;
+}
+
+header .menu-side .playlist h4 a span {
+    position: relative;
+    margin-right: 35px;
+}
+
+header .menu-side .playlist h4 a span::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #4c5262;
+    border-radius: 50%;
+    top: -4px;
+    transition: .3s linear;
+}
+
+header .menu-side .playlist h4 a:hover span::before {
+    border: 2px solid white;
+}
+
+header .menu-side .playlist h4 a .bi {
+    display: none;
+}
+
+header .menu-side .playlist .active a {
+    color: #2EC49C;
+}
+
+header .menu-side .playlist .active a span {
+    display: none;
+}
+
+header .menu-side .playlist .active a .bi {
+    display: flex;
+    margin-right: 20px;
+}
+
+header .master-play {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+header .master-play .wave {
+    width: 30px;
+    height: 30px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+header .master-play .wave .wave1 {
+    width: 3px;
+    height: 10px;
+    margin-right: 3px;
+    border-radius: 10px 10px 0px 0px;
+    background: #2EC49C;
+    animation: unset;
+}
+
+header .master-play .wave .wave1:nth-child(2) {
+    height: 13px;
+}
+
+header .master-play .wave .wave1:nth-child(3) {
+    height: 8px;
+}
+
+header .master-play .active2 .wave1 {
+    animation: wave .5s linear infinite;
+}
+
+header .master-play .active2 .wave1:nth-child(2) {
+    animation-delay: .4s
+}
+
+header .master-play .active2 .wave1:nth-child(3) {
+    animation-delay: .8s
+}
+
+@keyframes wave {
+    0%{
+        height: 10px;
+    }
+    50%{
+        height: 15px;
+    }
+    100%{
+        height: 10px;
+    }
+}
+
+header .master-play img {
+    width: 35px;
+    height: 35px;
+}
+
+header .master-play h5 {
+    width: 130px;
+    font-size: 13px;
+    margin-left: 15px;
+    color: white;
+    line-height: 17px;
+}
+
+header .master-play h5 .subtitle {
+    font-size: 11px;
+    color: #4c5262;
+}
+
+header .master-play .icon {
+    font-size: 20px;
+    color: white;
+    margin: 0px 20px 0px 40px;
+}
+
+header .master-play .icon .bi {
+    cursor: pointer;
+    outline: none;
+}
+
+header .master-play .icon .bi:nth-child(2) {
+    padding: 1px 3px 0px 6px;
+    margin: 0px 5px;
+    transition: .3s linear;
+}
+
+header .master-play span {
+    color: white;
+    width: 32px;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+header .master-play #current-start {
+    margin: 0px 0px 0px 20px;
+}
+
+header .master-play .bar {
+    position: relative;
+    width: 43%;
+    height: 2px;
+    background: rgb(105,105,170,.1);
+    margin: 0px 15px 0px 10px;
+}
+
+header .master-play .bar .bar2 {
+    position: absolute;
+    background: #2EC49C;
+    width: 0%;
+    height: 100%;
+    top: 0;
+    transition: 1s linear;
+}
+
+header .master-play .bar .dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #2EC49C;
+    border-radius: 50%;
+    left: 0%;
+    top: -1px;
+    transition: 1s linear;
+}
+
+header .master-play .bar .dot::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #2EC49C;
+    border-radius: 50%;
+    left: -6px;
+    top: -6px;
+    transition: 1s linear;
+    box-shadow: inset 0px 0px 3px #2EC49C;
+}
+
+header .master-play .bar input {
+    position: absolute;
+    width: 100%;
+    top: -6px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999;
+    transition: 3s linear;
+    opacity: 0;
+}
+
+header .master-play .vol {
+    position: relative;
+    width: 100px;
+    height: 2px;
+    margin-left: 50px;
+    background: rgb(105,105,170,.1);
+}
+
+header .master-play .vol .bi {
+    position: absolute;
+    color: white;
+    font-size: 25px;
+    top: -17px;
+    left: -30px;
+}
+
+header .master-play .vol input {
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999;
+    transition: 3s linear;
+    opacity: 0;
+}
+
+header .master-play .vol .vol-bar {
+    position: absolute;
+    background: #2EC49C;
+    width: 30%;
+    height: 100%;
+    top: 0;
+    transition: 1s linear;
+}
+
+header .master-play .vol .dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #2EC49C;
+    border-radius: 50%;
+    left: 30%;
+    top: -1px;
+    transition: 1s linear;
+}
+
+header .master-play .vol .dot::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #2EC49C;
+    border-radius: 50%;
+    left: -6px;
+    top: -6px;
+    transition: 1s linear;
+    box-shadow: inset 0px 0px 3px #2EC49C;
+}
+
+header .song-side {
+    overflow-y: scroll;
+}
+
+header .song-side::-webkit-scrollbar {
+    width: 10px;
+}
+
+header .song-side::-webkit-scrollbar-track {
+    background: #0b1320;
+}
+
+header .song-side::-webkit-scrollbar-thumb {
+    background: #4c5262;
+}
+
+header .song-side::-webkit-scrollbar-thumb:hover {
+    background: rgb(194, 194, 194);
+}
+
+header .song-side::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 300px;
+}
+
+header .song-side nav {
+    position: fixed;
+    width: 100%;
+    height: 10%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0b1320;
+    z-index: 2;
+}
+
+header .song-side nav .search {
+    position: relative;
+    width: 40%;
+    padding: 1px 1px;
+    border-radius: 20px;
+    color: gray;
+    margin-left: 10px;
+}
+
+header .song-side nav .search::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgb(184,184,184,.1);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+header .song-side nav .search form button {
+    background-color: rgb(0,0,0,.01);
+    border: none;
+    color: gray;
+}
+
+header .song-side nav .search form button:hover {
+    cursor: pointer;
+}
+
+header .song-side nav .search form button .bi {
+    font-size: 13px;
+    padding: 3px 0px 0px 10px;
+}
+
+header .song-side nav .search form input {
+    background: none;
+    outline: none;
+    border: none;
+    padding: 0px 315px 0px 10px;
+    color: white;
+    font-size: 12px;
+}
+
+header .song-side nav .user {
+    font-size: 14px;
+    position: relative;
+    width: 150px;
+    height: 30px;
+    margin-right: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header .song-side nav .user div a {
+    color: white;
+    text-decoration: none;
+}
+
+header .song-side .menu-song {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 75px;
+}
+
+header .song-side .menu-song form input {
+    width: 300px;
+}
+
+header .song-side .menu-song form input, select {
+    height: 25px;
+    border-radius: 5px;
+}
+
+header .song-side .menu-song form #tambah-data {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #0d63fd;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    line-height: 0.5;
+    margin-top: 15px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    color: white;
+    outline: none;
+}
+
+header .song-side .menu-song form #edit-data {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #0d63fd;
+    border: 1px solid #0d6efd;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    line-height: 0.5;
+    margin-top: 15px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    color: white;
+    outline: none;
+    float: left;
+    margin-right: 15px;
+}
+
+header .song-side .menu-song form #cancel {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    line-height: 0.5;
+    margin-top: 15px;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    color: white;
+    outline: none;
+}
+
+header .song-side .menu-song table tr td form {
+    float: left;
+}
+
+header .song-side .menu-song table tr td form #edit {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #6c757d;
+    border: 1px solid #6c757d;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    line-height: 0.5;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    color: white;
+    outline: none;
+}
+
+header .song-side .menu-song table tr td form #delete {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    line-height: 0.5;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    color: white;
+    outline: none;
+    margin-right : 17px;
+}
+
+header .song-side .menu-song h1 {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 0px 10px 20px;
+    font-style: inherit;
+}
+
+header .song-side .menu-song form {
+    padding: 5px 0px 10px 20px;
+}
+
+header .song-side .menu-song table {
+    margin: 5px 0px 10px 20px;
+    border-collapse: collapse;
+    font-size: 10pt;
+    border: 1px solid white;
+}
+header .song-side .menu-song table tr td {
+    padding: 5px;
+    height: 25px;
+}
+
+header .song-side .menu-song table tr th {
+    background-color: #4c5262;
+    color: white;
+    height: 30px;
+    padding: 5px;
+}
+
+header .song-side .menu-song .hubungi-kami .bi-envelope {
+    padding: 5px 5px 5px 5px;
+    margin: 0px 5px 5px 0px;
+}
+
+header .song-side .menu-song .hubungi-kami hr {
+    color: #4c5262;
+    margin: 0px 20px 20px 20px;
+}
+
+header .song-side .menu-song h4 {
+    font-size: 15px;
+    font-weight: 300;
+    padding: 5px 0px 10px 20px;
+}
+
+header .song-side .menu-song .hubungi-kami .email {
+    margin: 15px 0px 5px 20px;
+}
+
+header .song-side .menu-song .hubungi-kami .ket {
+    color: #4c5262;
+    margin: 5px 0px 10px 20px;
+    font-size: 15px;
+}
+
+header .song-side .menu-song .h1-ket {
+    margin: 5px 0px 10px 20px;
+    font-size: 15px;
+    color: #4c5262;
+}
+
+header .song-side .menu-song li {
+    position: relative;
+    list-style-type: none;
+    padding: 5px 0px 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+header .song-side .menu-song li span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4c5262;
+}
+
+header .song-side .menu-song li img {
+    width: 32px;
+    height: 32px;
+    margin-left: 25px;
+}
+
+header .song-side .menu-song li h5 {
+    font-size: 11px;
+    margin-left: 15px;
+}
+
+header .song-side .menu-song li h5 .subtitle {
+    font-size: 9px;
+    color: #4c5262;
+}
